@@ -1,0 +1,11 @@
+# User-specific config (populated during /setup-outreach)
+references/user-context.md
+
+# Weekly archives
+runs/*.md
+
+# OS files
+.DS_Store
+
+# Archives
+*.zip
