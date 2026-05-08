@@ -40,7 +40,7 @@ Saved to `references/user-context.md` (gitignored).
 
 ## Companion plugins
 
-- **brightway-core** — provides the `pipeline-analyst` subagent for prioritization
+- **core-ops** — provides the `pipeline-analyst` subagent for prioritization
 - **lead-engine** — provides the `contact-researcher` subagent for top-contact deep-dives
 - **bizdev-outreach** — shares voice rules; both can read each other's user-context for consistency
 - **plan-tomorrow** — pulls outreach contacts from the weekly queue

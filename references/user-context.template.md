@@ -44,7 +44,7 @@ _Last updated: [filled by setup]_
 - **Strategic-recommendation sources:** [events, LinkedIn, intros, seasonal]
 
 ## Companion plugins
-- **brightway-core (pipeline-analyst):** [installed / not]
+- **core-ops (pipeline-analyst):** [installed / not]
 - **lead-engine (contact-researcher):** [installed / not]
 - **bizdev-outreach:** [installed / not]
 - **plan-tomorrow:** [installed / not]

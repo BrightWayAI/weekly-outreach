@@ -20,7 +20,7 @@ Extract:
 - Voice rules (banned phrases, tone)
 - Weekly target (default 10–12)
 - Apollo enabled? (yes/no)
-- Companion plugins (brightway-core for pipeline-analyst? lead-engine for contact-researcher? bizdev-outreach for shared voice rules?)
+- Companion plugins (core-ops for pipeline-analyst? lead-engine for contact-researcher? bizdev-outreach for shared voice rules?)
 
 ---
 
@@ -50,8 +50,8 @@ For each external call:
 
 ## Step 2 — Build the outreach queue
 
-**If `pipeline-analyst` is available** (brightway-core installed): use the Task tool with `subagent_type="pipeline-analyst"` and pass:
-- `user-context-path` — path to brightway-core's user-context (or this plugin's, whichever is more current)
+**If `pipeline-analyst` is available** (core-ops installed): use the Task tool with `subagent_type="pipeline-analyst"` and pass:
+- `user-context-path` — path to core-ops's user-context (or this plugin's, whichever is more current)
 - `time-window` — 90 days
 - `focus-filter` — "active deals + tier-A overdue + tier-B due + rewarm targets in 45–60d window"
 - `top-n` — your weekly target (default 12)
