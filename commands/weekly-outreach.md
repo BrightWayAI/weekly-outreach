@@ -58,6 +58,12 @@ For each external call:
 
 The agent returns a ranked list with reasoning. Use that as your queue.
 
+**Confidence check.** If `pipeline-analyst` returns `Confidence: Low` (e.g., "CRM connector returned partial data" or "user-context-path was missing scoring weights"), pause:
+
+> "Pipeline analysis came back Low confidence: [specific gap]. The queue I build from this will be rougher. Want to fix the gap (e.g., re-run `/setup-core` or check CRM connection) and rerun, or proceed with what we have?"
+
+If "proceed," continue but note the limitation in the final plan's PIPELINE SNAPSHOT section.
+
 **If pipeline-analyst is not available:** query the CRM directly using the priority order from your user-context. Default order:
 
 1. **Active deal contacts** — contacts associated with open deals.
@@ -113,7 +119,9 @@ For each, use the Task tool with `subagent_type="contact-researcher"`, purpose `
 - **Three Talking Points** — seeds for the draft message
 - **Suggested Next Step** — informs the message's CTA
 
-Skip this step on a quick refresh or for routine cadence touches.
+**Confidence check per contact.** If a returned dossier is `Confidence: Low` AND key sections are empty, fall back to a thinner draft for that contact (use only what's in the CRM + last email thread). Note in HOLDING PATTERN that "research thin — verify context before sending." Don't pause and ask the user per contact — too disruptive at this scale.
+
+Skip this step entirely on a quick refresh or for routine cadence touches.
 
 ---
 
