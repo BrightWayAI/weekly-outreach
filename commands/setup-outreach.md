@@ -8,6 +8,28 @@ Short interview that captures what weekly-outreach needs to actually be useful f
 
 ---
 
+## Pre-step — Read shared identity (if available)
+
+Before asking identity-style questions (name, company, role, primary tools), check whether `~/Documents/Claude/identity.md` exists. This is a shared identity file populated by cortex's `/setup-identity` command — every BrightWayAI marketplace plugin reads it.
+
+- **If it exists and is populated:** read it. Use the values to pre-fill Section 1 (Identity) of this interview. Skip those questions; just confirm what you read.
+- **If it doesn't exist:** offer the user:
+  > "There's a shared identity file (`/setup-identity` in cortex) that other plugins read too — capture name/company/role/tools once and every plugin uses it. Want to run `/setup-identity` first (recommended, ~2 min), or capture identity inline here only?"
+  - "Run /setup-identity first" → route there, then resume.
+  - "Inline" → proceed normally.
+
+## Pre-step 2 — Read shared voice (if available)
+
+After identity, check whether `~/Documents/Claude/voice.md` exists. This is a shared writing-voice file populated by cortex's `/setup-voice` command — used by every drafting plugin (bizdev-outreach, weekly-outreach, lead-engine, news-curator) so voice stays consistent.
+
+- **If it exists and is populated:** read it. Use those values to pre-fill Section 5 (Voice and banned phrases) of this interview. Skip those questions; just confirm.
+- **If it doesn't exist:** offer:
+  > "Want to capture your writing voice once via `/setup-voice` (in cortex)? It saves to a shared file every drafting plugin reads — voice stays consistent across channels and you only update in one place. Or proceed inline here?"
+  - "Run /setup-voice first" → route there, then resume.
+  - "Inline" → proceed normally.
+
+---
+
 ## Step 1 — Check for existing config
 
 Read `references/user-context.md`. If populated → ask whether to update or restart. If missing → start fresh.
