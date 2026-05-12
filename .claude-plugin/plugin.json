@@ -1,6 +1,6 @@
 {
   "name": "weekly-outreach",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Weekly relationship management and business development prep. Pulls from your CRM, email, and calendar to build a prioritized outreach plan in chat — plus CRM tasks and calendar placeholders for accountability. Delegates pipeline analysis to pipeline-analyst and per-contact research to contact-researcher when installed. Configurable per user via /setup-outreach.",
   "author": {
     "name": "BrightWay AI"
