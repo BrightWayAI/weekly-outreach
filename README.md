@@ -17,7 +17,7 @@ You walk away with: a prioritized outreach queue (10–12 contacts by default), 
 
 ## Install
 
-Recommended: via the [BrightWayAI marketplace](https://github.com/BrightWayAI/claude-plugins).
+Recommended: via the [BrightWayAI marketplace](https://github.com/BrightWayAI/nucleus).
 
 ```
 /plugin marketplace add BrightWayAI/weekly-outreach
