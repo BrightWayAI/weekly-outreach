@@ -14,7 +14,7 @@ See `commands/weekly-outreach.md` for the full workflow.
 
 ## Pre-flight check
 
-Confirm `references/user-context.md` exists. If missing, route to `/setup-outreach` first — without ICP, CRM properties, and voice rules, the output is generic.
+Confirm `<config-root>/plugins/weekly-outreach.user-context.md` exists. If missing, route to `/setup-outreach` first — without ICP, CRM properties, and voice rules, the output is generic.
 
 ## What this skill is *not* for
 

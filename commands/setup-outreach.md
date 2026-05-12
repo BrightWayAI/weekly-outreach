@@ -1,5 +1,5 @@
 ---
-description: Configure weekly-outreach for your ICP, CRM properties, voice rules, and companion-plugin integrations. Writes results to references/user-context.md so the weekly prep adapts to your firm. Re-run anytime to update.
+description: Configure weekly-outreach for your ICP, CRM properties, voice rules, and companion-plugin integrations. Writes results to <config-root>/plugins/weekly-outreach.user-context.md so the weekly prep adapts to your firm. Re-run anytime to update.
 ---
 
 # /setup-outreach
@@ -8,31 +8,44 @@ Short interview that captures what weekly-outreach needs to actually be useful f
 
 ---
 
-## Pre-step — Read shared identity (if available)
+## Step 0 — Resolve plugin config root
 
-Before asking identity-style questions (name, company, role, primary tools), check whether `~/Documents/Claude/identity.md` exists. This is a shared identity file populated by cortex's `/setup-identity` command — every BrightWayAI marketplace plugin reads it.
+Per-plugin config in this marketplace lives under a user-chosen folder, recorded at `~/.claude-plugin-config-root` (single-line text file in the user's home).
 
-- **If it exists and is populated:** read it. Use the values to pre-fill Section 1 (Identity) of this interview. Skip those questions; just confirm what you read.
-- **If it doesn't exist:** offer the user:
-  > "There's a shared identity file (`/setup-identity` in cortex) that other plugins read too — capture name/company/role/tools once and every plugin uses it. Want to run `/setup-identity` first (recommended, ~2 min), or capture identity inline here only?"
-  - "Run /setup-identity first" → route there, then resume.
-  - "Inline" → proceed normally.
+### A — Try the pointer
 
-## Pre-step 2 — Read shared voice (if available)
+Call `request_cowork_directory(~)` if not granted, then read `~/.claude-plugin-config-root`.
+- **Exists**: read line 1 → mount via `request_cowork_directory(<config-root>)`. Skip to section C.
+- **Missing**: continue to section B.
 
-After identity, check whether `~/Documents/Claude/voice.md` exists. This is a shared writing-voice file populated by cortex's `/setup-voice` command — used by every drafting plugin (bizdev-outreach, weekly-outreach, lead-engine, news-curator) so voice stays consistent.
+### B — First-time bootstrap
 
-- **If it exists and is populated:** read it. Use those values to pre-fill Section 5 (Voice and banned phrases) of this interview. Skip those questions; just confirm.
-- **If it doesn't exist:** offer:
-  > "Want to capture your writing voice once via `/setup-voice` (in cortex)? It saves to a shared file every drafting plugin reads — voice stays consistent across channels and you only update in one place. Or proceed inline here?"
-  - "Run /setup-voice first" → route there, then resume.
-  - "Inline" → proceed normally.
+Prompt: "First-time plugin setup. Where should I store your plugin config — identity, voice, and per-plugin settings? Pick a folder you control (e.g., `~/Documents/Claude/` or `~/Documents/PluginConfig/`). The folder will hold `identity.md`, `voice.md`, and a `plugins/` subdirectory."
+
+Then:
+1. Call `request_cowork_directory(<path>)`. Create `<path>/plugins/`. Write absolute path to `~/.claude-plugin-config-root`.
+2. **Migration**: if `~/Documents/Claude/identity.md` or `voice.md` exists and `<path>` is not `~/Documents/Claude/`, offer to copy.
+3. **Pre-staged content**: if `~/Documents/Claude/plugin-configs/*.user-context.md` files exist, offer to copy into `<path>/plugins/`.
+
+### C — Read shared identity
+
+Read `<config-root>/identity.md` (cortex's `/setup-identity` output).
+- **Populated** → pre-fill Section 1 (Identity).
+- **Missing** → offer `/setup-identity` first or proceed inline.
+
+### D — Read shared voice
+
+Read `<config-root>/voice.md` (cortex's `/setup-voice` output).
+- **Populated** → pre-fill Section 5 (Voice and banned phrases).
+- **Missing** → offer `/setup-voice` first or proceed inline.
+
+For the rest of this document, **`<config-root>`** refers to the resolved path. This plugin's config file lives at **`<config-root>/plugins/weekly-outreach.user-context.md`**.
 
 ---
 
 ## Step 1 — Check for existing config
 
-Read `references/user-context.md`. If populated → ask whether to update or restart. If missing → start fresh.
+Read `<config-root>/plugins/weekly-outreach.user-context.md`. If populated → ask whether to update or restart. If missing → start fresh.
 
 ---
 
@@ -91,7 +104,7 @@ For each tier, capture:
 
 ## Step 3 — Write the config
 
-Populate `references/user-context.md`:
+Populate `<config-root>/plugins/weekly-outreach.user-context.md`:
 
 ```markdown
 # weekly-outreach user context

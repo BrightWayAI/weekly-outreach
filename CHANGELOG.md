@@ -4,6 +4,14 @@ All notable changes to weekly-outreach are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/). Versions match `plugin.json`.
 
+## [0.2.0] — Config-root refactor
+
+### Changed
+- **Plugin config moved to a user-chosen folder.** Reads and writes now go to `<config-root>/plugins/weekly-outreach.user-context.md`, where `<config-root>` is the folder the user chooses on first plugin setup (recorded at `~/.claude-plugin-config-root`).
+- **`/setup-outreach` Step 0 bootstraps the config root.** Resolves the pointer; prompts for the root on first run; reads shared identity + voice; offers to migrate legacy config and pre-staged files.
+- **All operating commands and skills** read from the new path.
+- **User-facing prompts debranded** for fork-friendliness.
+
 ## [0.1.0] — Initial release
 
 ### Added

@@ -13,4 +13,4 @@ See `commands/setup-outreach.md` for the full interview.
 
 ## Quick path
 
-If the user wants minimum-viable defaults to start: write a placeholder `references/user-context.md` with weekly target 10–12, CRM "none," generic ICP, default banned phrases. The command will work but output will be generic. Recommend running the full interview before relying on it for real outreach.
+If the user wants minimum-viable defaults to start: write a placeholder `<config-root>/plugins/weekly-outreach.user-context.md` with weekly target 10–12, CRM "none," generic ICP, default banned phrases. The command will work but output will be generic. Recommend running the full interview before relying on it for real outreach.

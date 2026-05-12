@@ -10,7 +10,7 @@ End-to-end weekly outreach prep. The output stays in chat — review, iterate, t
 
 ## Step 0 — Preflight
 
-Read `references/user-context.md`. If missing, route to `/setup-outreach` and stop.
+Read `<config-root>/plugins/weekly-outreach.user-context.md`. If missing, route to `/setup-outreach` and stop.
 
 Extract:
 - Identity (name, company, what you do)
