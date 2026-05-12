@@ -4,6 +4,15 @@ All notable changes to weekly-outreach are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/). Versions match `plugin.json`.
 
+## [0.2.4] — Person-page side effect (2026-05-12)
+
+### Added
+- **Person-page Recent-interactions append (Step 9).** After the queue is approved and CRM tasks / calendar placeholders are created, weekly-outreach appends a `<today> — queue-add — week of <week-start>: <channel>, <ask shape>` line to each queued contact's cortex person page if one exists at `<config-root>/memory/person/<slug>.md`. Updates Last meaningful contact in Relationship.
+- **Graceful degradation.** No-op if cortex isn't installed or the contact has no graduated page. Doesn't graduate new pages — only updates existing.
+
+### Why this matters
+Phase 3 of SECOND-BRAIN-V2-SPEC. Weekly outreach was previously invisible at the person-page level; the queue gets re-built every week without leaving a trail on the people it touched. This side effect closes that loop additively.
+
 ## [0.2.3] — Platform-agnostic Step 0 (2026-05-12)
 
 ### Changed

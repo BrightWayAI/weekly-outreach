@@ -217,6 +217,23 @@ Present the proposed schedule. Wait for approval. Create.
 
 ---
 
+## Step 9 — Person-page side effect (cortex v4.2+)
+
+After the queue is approved and CRM tasks / calendar placeholders are created, update person pages for each queued contact who has a graduated page.
+
+For each queued contact:
+
+1. Resolve `<config-root>` via the standard pointer (`~/Documents/.claude-plugin-config-root`).
+2. Compute slug: `firstname-lastname` lowercased, hyphenated.
+3. **If `<config-root>/memory/person/<slug>.md` exists** → append to that page's **## Recent interactions**:
+   `<today> — queue-add — week of <week-start>: <channel>, <ask shape> (e.g., "post-positive-touch", "re-warm")`
+   (Don't double-add if an identical line exists for today.) Update **Last meaningful contact** in Relationship if the entry represents real engagement (not just a queue placeholder).
+4. **If the page does NOT exist** → do nothing. This plugin doesn't graduate new pages; that's owned by cortex `/remember` and `contact-researcher`.
+
+If cortex isn't installed (`<config-root>/memory/` missing), skip silently.
+
+---
+
 ## Reminder — Calendar rules
 
 - NEVER edit or update existing events
